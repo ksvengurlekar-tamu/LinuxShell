@@ -1,0 +1,114 @@
+{
+  "tests": [
+    {
+      "name": "1 Hello World Test",
+      "setup": "make test > ./.gradefile",
+      "run": "grep \"One\" .gradefile",
+      "input": "",
+      "output": "Test One Passed",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 10
+    },
+    {
+      "name": "2 ls",
+      "setup": "",
+      "run": "grep \"Two\" .gradefile",
+      "input": "",
+      "output": "Test Two Passed",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "4 ls l a",
+      "setup": "",
+      "run": "grep \"Four\" .gradefile",
+      "input": "",
+      "output": "Test Four Passed",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "5 ps aux",
+      "setup": "",
+      "run": "grep \"Five\" .gradefile",
+      "input": "",
+      "output": "Test Five Passed",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "6 ps aux ",
+      "setup": "",
+      "run": "grep \"Six\" .gradefile",
+      "input": "",
+      "output": "Test Six Passed",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "7 ls l",
+      "setup": "",
+      "run": "grep \"Seven\" .gradefile",
+      "input": "",
+      "output": "Test Seven Passed",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "8 ps aux ",
+      "setup": "",
+      "run": "grep \"Eight\" .gradefile",
+      "input": "",
+      "output": "Test Eight Passed",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "9 Multiple Pipes and Redirection",
+      "setup": "",
+      "run": "grep \"Nine\" .gradefile",
+      "input": "",
+      "output": "Test Nine Passed",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "3 ls a",
+      "setup": "make",
+      "run": "echo \"ls -a\" > .test.txt && echo \"exit\" >> .test.txt && ./shell <.test.txt >output.txt && grep \".test.txt\" output.txt",
+      "input": "",
+      "output": ".test.txt",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "10 cd 1",
+      "setup": "mkdir \"testdir1\" && mkdir \"testdir1/testdir2\" && echo \"cd testdir1/testdir2\" > test.txt && echo \"pwd\" >> test.txt && echo \"exit\" >> test.txt",
+      "run": "./shell <test.txt >output.txt && grep \"testdir1/testdir2\" output.txt",
+      "input": "",
+      "output": "testdir1/testdir2",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "11 cd 2",
+      "setup": "echo \"cd testdir1/testdir2\" > test.txt && echo \"cd ..\" >> test.txt && echo \"ls\" >> test.txt && echo \"exit\" >> test.txt",
+      "run": "./shell <test.txt >output.txt && grep \"testdir2\" output.txt",
+      "input": "",
+      "output": "testdir2",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    }
+  ]
+}
